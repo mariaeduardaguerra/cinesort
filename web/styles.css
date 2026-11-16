@@ -694,3 +694,123 @@ dialog select {
     text-overflow: ellipsis;
   }
 }
+
+/* Conta do usuário */
+.account-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 14px 5vw;
+  border-bottom: 1px solid var(--line);
+
+  background: #191416;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.account-info strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.account-info small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.account-actions button {
+  padding: 9px 13px;
+  font-size: 12px;
+}
+
+/* Formulário de autenticação */
+.auth-description,
+.auth-feedback {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auth-description {
+  color: var(--muted);
+}
+
+.auth-feedback {
+  min-height: 20px;
+  color: #efb2b8;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.auth-buttons button {
+  width: 100%;
+}
+
+.auth-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.auth-links button {
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+  color: #e49a9f;
+  font-size: 12px;
+}
+
+.auth-separator {
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Indicação de carregamento */
+.sync-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+  background: #111011ed;
+  color: #eee7df;
+  text-align: center;
+}
+
+.sync-overlay[hidden] {
+  display: none;
+}
+
+.sync-overlay p {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
