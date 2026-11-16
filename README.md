@@ -64,3 +64,6 @@ Possui complexidade O(n²) no pior caso.
 - Dados armazenados localmente, sem sincronização entre dispositivos.
 - Não permite editar os dados de um filme, exceto o status de assistido.
 
+## Demonstração
+
+![CineSort em execução no terminal](docs/demonstracao.png)
