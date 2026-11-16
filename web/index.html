@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineSort — Sua próxima sessão</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        ◈ Cine<span>Sort</span>
+      </div>
+
+      <nav aria-label="Coleções">
+        <button class="active" data-tab="all">
+          Minha coleção
+        </button>
+
+        <button data-tab="watch">
+          Quero assistir
+        </button>
+
+        <button data-tab="favorites">
+          Favoritos ♡
+        </button>
+      </nav>
+
+      <button class="primary" id="add">
+        ＋ Adicionar filme
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">
+          Seu pequeno universo de cinema
+        </div>
+
+        <h1>
+          Para cada humor,<br>
+          uma <em>nova história.</em>
+        </h1>
+
+        <p>
+          Dos clássicos sombrios às comédias que abraçam.<br>
+          Guarde seus filmes e encontre sua próxima sessão.
+        </p>
+
+        <button class="outline" id="surprise">
+          ✦ Escolha um filme para mim
+        </button>
+
+        <span class="tag">
+          Uma coleção com a sua personalidade
+        </span>
+      </section>
+
+      <section
+        class="stats"
+        id="stats"
+        aria-label="Resumo da coleção"
+      ></section>
+
+      <section>
+        <div class="section-title">
+          <div>
+            <h2 id="sectionHeading">
+              Sua coleção, seu cinema
+            </h2>
+
+            <p id="count"></p>
+          </div>
+
+          <span class="eyebrow">
+            Em cartaz na sua vida
+          </span>
+        </div>
+
+        <div class="toolbar">
+          <input
+            id="search"
+            type="search"
+            placeholder="Buscar um filme..."
+            aria-label="Buscar filme"
+          >
+
+          <select id="time" aria-label="Tempo disponível">
+            <option value="0">Qualquer duração</option>
+            <option value="90">Até 1h30</option>
+            <option value="120">Até 2 horas</option>
+            <option value="180">Até 3 horas</option>
+          </select>
+
+          <select id="sort" aria-label="Ordenação">
+            <option value="recent">Adicionados recentemente</option>
+            <option value="title">Título · A–Z</option>
+            <option value="duration">Menor duração</option>
+            <option value="year">Mais antigos</option>
+          </select>
+        </div>
+
+        <div class="chips" id="chips"></div>
+
+        <div class="grid" id="grid"></div>
+      </section>
+
+      <footer>
+        <span>
+          ◈ CineSort · Maria Eduarda Guerra
+        </span>
+
+        <div class="tools">
+          <button id="export">Exportar coleção ↓</button>
+          <button id="import">Importar JSON ↑</button>
+        </div>
+
+        <span>Dados salvos neste navegador.</span>
+      </footer>
+    </main>
+
+    <!-- Formulário de cadastro e edição -->
+    <dialog id="editor">
+      <form id="form">
+        <h2 id="formHeading">Uma nova história</h2>
+
+        <p class="note">
+          Adicione um filme à sua coleção pessoal.
+        </p>
+
+        <input type="hidden" id="editId">
+
+        <label for="title">Título</label>
+        <input id="title" required maxlength="100">
+
+        <div class="row">
+          <div>
+            <label for="year">Ano</label>
+
+            <input
+              id="year"
+              type="number"
+              min="1888"
+              max="2100"
+              required
+            >
+          </div>
+
+          <div>
+            <label for="duration">Duração em minutos</label>
+
+            <input
+              id="duration"
+              type="number"
+              min="1"
+              max="10000"
+              required
+            >
+          </div>
+        </div>
+
+        <label for="mood">Atmosfera</label>
+
+        <select id="mood">
+          <option>Gótico</option>
+          <option>Mágico</option>
+          <option>Camp</option>
+          <option>Aconchegante</option>
+          <option>Suspense</option>
+          <option>Drama</option>
+          <option>Outro</option>
+        </select>
+
+        <div class="check">
+          <input type="checkbox" id="watched">
+          <label for="watched">Já assisti a este filme</label>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="outline" id="cancel">
+            Cancelar
+          </button>
+
+          <button type="submit" class="primary">
+            Salvar filme
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Detalhes do filme -->
+    <dialog id="detail">
+      <div id="detailContent"></div>
+
+      <div class="actions">
+        <button class="outline" id="closeDetail">
+          Fechar
+        </button>
+      </div>
+    </dialog>
+
+    <input
+      id="file"
+      type="file"
+      accept="application/json,.json"
+      hidden
+    >
+
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
